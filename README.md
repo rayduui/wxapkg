@@ -16,19 +16,43 @@
 
 ![demo](demo.gif)
 
-一般用法如下，目前**只支持 windows 系统**：
+一般用法如下，支持 Windows 和 macOS 系统：
 
 1. 用 PC 版微信打开小程序来让微信下载小程序  
-2. 使用 `wxapkg.exe scan` 命令来扫描所有小程序。需要**联网**获取小程序的名称、路径、wxid（用于后续解密）等信息  
+2. 使用 `wxapkg scan` 命令来扫描所有小程序。需要**联网**获取小程序的名称、路径、wxid（用于后续解密）等信息  
 3. 使用键盘上下键选中想要处理的小程序，然后按回车来执行解密+解包  
 
-如果想手动来解密指定小程序，可以使用 `wxapkg.exe unpack` 命令，需要指定小程序 wxapkg 文件路径，同时指定小程序的 `wxid`。如果没指定 `wxid`，会自动从路径中使用正则表达式匹配获取
+如果想手动来解密指定小程序，可以使用 `wxapkg unpack` 命令，需要指定小程序 wxapkg 文件路径，同时指定小程序的 `wxid`。如果没指定 `wxid`，会自动从路径中使用正则表达式匹配获取
 
 ## ⚒️ 安装
+
+### Windows
 
 下载最新的发布版本 [release](https://github.com/wux1an/wxapkg/releases/latest)，或者用下面的命令自己编译
 
 ```
+go install github.com/wux1an/wxapkg@latest
+```
+
+### macOS
+
+在 macOS 上，您可以使用提供的构建脚本来编译：
+
+```bash
+# 克隆仓库
+git clone https://github.com/wux1an/wxapkg.git
+cd wxapkg
+
+# 运行构建脚本
+./build.sh
+
+# 运行程序
+./wxapkg scan
+```
+
+或者直接使用 Go 命令安装：
+
+```bash
 go install github.com/wux1an/wxapkg@latest
 ```
 
